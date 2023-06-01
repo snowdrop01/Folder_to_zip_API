@@ -12,21 +12,16 @@ const app = express()
 // this is the name of specific folder which is to be changed into zip file1
 var to_zip = file_system.readdirSync(__dirname + '/' + 'uploads')
 
-// this is used to request the specific file and then print
-// the data in it!
 app.get('/', function (req, res) {
 	// res.sendFile(__dirname + '/' + 'index.html')
 
 
-	// zp is created as an object of class admz() which
-	// contains functionalities
+	// zp is created as an object of class admz() which contains functionalities
 	const zp = new admz();
 
 
-	// this is the main part of our work!
-	// here for loop check counts and passes each and every
-	// file of our folder "upload_data"
-	// and convert each of them to a zip!
+	
+	// here for loop check counts and passes each and every file of our folder "uploads" and convert each of them to a zip!
 	console.log(to_zip.length``)
 	for (let k = 0; k < to_zip.length; k++) {
 		zp.addLocalFile(__dirname + '/' + 'uploads' + '/' + to_zip[k])
@@ -36,8 +31,7 @@ app.get('/', function (req, res) {
 	// here we assigned the name to our downloaded file!
 	const file_after_download = 'downloaded_file.zip';
 
-	// toBuffer() is used to read the data and save it
-	// for downloading process!
+	// toBuffer() is used to read the data and save it for downloading process!
 	const data = zp.toBuffer();
 
 
